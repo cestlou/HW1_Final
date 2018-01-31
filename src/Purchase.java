@@ -1,10 +1,7 @@
-import java.util.*;
-import java.awt.*;
-
 public class Purchase {
-  private String itemName;
-  public int unitsPurchased;
-  private double pricePerUnit;
+  private String itemName = "";
+  public int unitsPurchased = 0;
+  private double pricePerUnit = 0.0;
 
   public Purchase() {
     this("", 0, 0);
@@ -14,13 +11,12 @@ public class Purchase {
     this(itemName, 0, pricePerUnit);
   }
 
-  public Purchase(String itemName, int unitsPurchased, double units) {
-    this.pricePerUnit = units;
+  public Purchase(String itemName, int unitsPurchased, double pricePerUnit) {
     this.itemName = itemName;
     this.unitsPurchased = unitsPurchased;
+    this.pricePerUnit = pricePerUnit;
   }
 
-// accessor methods
   public double getPrice() {
     return this.pricePerUnit;
   }
@@ -32,11 +28,9 @@ public class Purchase {
   public int getUnitsPurchased() {
     return this.unitsPurchased;
   }
-// end accessors
 
-// modifier methods
-  public void setPricePerUnit(double units) {
-    this.pricePerUnit = units;
+  public double getCost() {
+    return unitsPurchased * pricePerUnit;
   }
 
   public void setItemName(String itemName) {
@@ -47,15 +41,8 @@ public class Purchase {
     this.unitsPurchased = unitsPurchased;
   }
 
-// end modifiers
-
-  public double getCost() {
-    return unitsPurchased * pricePerUnit;
-  }
-
-
   public String toString() {
-    String s = "";
-    return s.format("%s(%s)", itemName, pricePerUnit);
+    String purchaseInstance = "";
+    return purchaseInstance.format("%s(%s)", itemName, pricePerUnit);
    }
 }

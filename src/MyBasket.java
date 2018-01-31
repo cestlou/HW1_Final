@@ -1,10 +1,7 @@
-import java.util.*;
-import java.awt.*;
-
 public class MyBasket {
     private Purchase[] cart;
     private int totalPurchasesMade = 0;
-    private int countOfPurchases = 0;
+    private int count = 0;
 
     public MyBasket() {
         this.cart = new Purchase[100];
@@ -12,29 +9,31 @@ public class MyBasket {
     }
 
     // retrieve the instance of cart desired
-    public Purchase get(int x) {
-        return cart[x];
-    }
-    // amount of purchases in cart
-    public int length() {
-        return this.totalPurchasesMade;
+    public Purchase get(int index) {
+        return cart[index];
     }
 
-    public void add(Purchase purchase, int y) {
+    // amount of purchases in cart
+    public int length() {
+        return totalPurchasesMade;
+    }
+
+    // add a new product and quantity of said product to our biz
+    public void add(Purchase purchase, int quantity) {
         for (int i = 0; i < cart.length; i++) {
             if (cart[i] == null) {
                 continue;
             }
             else if (purchase == cart[i]) { // if there's somethin in the instance of cart
                 if (cart[i].getName().equals(purchase.getName())) { // and that bitch is what we already have
-                    purchase.setUnitsPurchased(y); // overwrite the amount of units we've got in there
+                    purchase.setUnitsPurchased(quantity); // overwrite the amount of units we've got in there
                 }
             }
         }
     }
 
+    // add a product to our virtual chill zone that doesn't have a value
     public void add(Purchase purchase) {
-
         for (int j = 0; j < cart.length; j++) {
             if (cart[j] == null) {
                 cart[j] = purchase;
@@ -44,13 +43,20 @@ public class MyBasket {
         }
     }
 
+    // SUPPOSED to get a new cost... RIP the ghost of $8.97
     public double getTotalCost() {
         double sum = 0.0;
-        for (int j = 0; j < cart.length; j++) {
-            sum += cart[j].getCost();
+        for (int j = 0; j < totalPurchasesMade; j++) {
+            if (cart[j] == null) {
+                sum += 0;
+            } else {
+                sum += cart[j].getCost();
+            }
         }
         return sum;
     }
+
+    // return to us a synopsis of our cart / basket / internet knapsack
     public String toString() {
         String nameOf = "";
         double price = 0.0;
