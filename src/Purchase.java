@@ -5,7 +5,7 @@ public class Purchase {
   private String itemName;
   public int unitsPurchased;
   private double pricePerUnit;
-  
+
   public Purchase() {
     this("", 0, 0);
   }
@@ -17,10 +17,10 @@ public class Purchase {
   public Purchase(String itemName, int unitsPurchased, double units) {
     this.pricePerUnit = units;
     this.itemName = itemName;
-    this.unitsPurchased = unitsPurchased;   
+    this.unitsPurchased = unitsPurchased;
   }
-  
-// accessor methods 
+
+// accessor methods
   public double getPrice() {
     return this.pricePerUnit;
   }
@@ -46,12 +46,13 @@ public class Purchase {
   public void setUnitsPurchased(int unitsPurchased) {
     this.unitsPurchased = unitsPurchased;
   }
+
 // end modifiers
 
-  
   public double getCost() {
     return unitsPurchased * pricePerUnit;
   }
+
 
   public String toString() {
     String s = "";

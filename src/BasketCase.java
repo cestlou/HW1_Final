@@ -20,8 +20,8 @@ public class BasketCase {
 		cart.add(item1);
 		cart.add(item2);
 		cart.add(item3, 8);
-		cart.add(new Purchase("Little stuff",2, 3.9));
-		System.out.println(cart.get(2));
+		cart.add(new Purchase("Little stuff",2, 2.9));
+		System.out.println(cart.get(0));
 		// System.out.println(buck	et);
 		// Little stuff(3.9) * 2 purchased = 7.8
 		// Big things(5.99) * 7 purchased = 41.93
